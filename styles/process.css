@@ -1,0 +1,121 @@
+#process {
+  background: var(--off-white);
+  padding: var(--section-pad) 0;
+}
+
+.process-header {
+  text-align: center;
+  margin: 0 auto 3.5rem;
+  max-width: 680px;
+}
+
+.process-intro {
+  color: var(--text-mid);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.process-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.process-step:hover {
+  box-shadow: 0 8px 32px rgba(13,27,62,0.09);
+  transform: translateY(-3px);
+}
+
+.process-step-num {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(13,27,62,0.05);
+  line-height: 1;
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+}
+
+.process-step-icon {
+  width: 52px; height: 52px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.process-step h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.process-step p {
+  color: var(--text-mid);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.process-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.process-items li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.process-items li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.process-arrow {
+  display: none;
+}
+
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 2.5rem;
+  right: -0.85rem;
+  width: 1.7rem;
+  height: 1px;
+  background: rgba(201,162,39,0.35);
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+  .process-step:not(:last-child)::after {
+    display: none;
+  }
+}

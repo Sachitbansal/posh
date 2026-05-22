@@ -1,0 +1,118 @@
+#mandate {
+  background: var(--off-white);
+  padding: var(--section-pad) 0;
+}
+
+.mandate-header {
+  margin-bottom: 3rem;
+}
+
+.mandate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.mandate-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.mandate-card:hover {
+  box-shadow: 0 8px 32px rgba(13,27,62,0.1);
+  transform: translateY(-2px);
+}
+
+.mandate-card.dark {
+  background: var(--navy);
+  border-color: rgba(201,162,39,0.2);
+  color: var(--white);
+}
+
+.mandate-card.wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 2.5rem;
+}
+
+.mandate-card.wide h3 { font-size: 1.05rem; margin-bottom: 0; }
+.mandate-card.wide p { margin-bottom: 0; font-size: 0.88rem; }
+
+.mandate-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: var(--gold-pale);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy);
+  flex-shrink: 0;
+  margin-bottom: 1.25rem;
+}
+
+.mandate-card.dark .mandate-icon {
+  background: rgba(201,162,39,0.15);
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.mandate-card.wide .mandate-icon { margin-bottom: 0; }
+
+.mandate-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+/* Light card text */
+.mandate-card:not(.dark) h3 { color: var(--navy); }
+.mandate-card:not(.dark) p  { color: var(--text-mid); }
+
+/* Dark card text */
+.mandate-card.dark h3 { color: var(--gold) !important; }
+.mandate-card.dark p  { color: rgba(255,255,255,0.72) !important; }
+.mandate-card.dark .mandate-tag { color: var(--gold) !important; }
+
+.mandate-card p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.mandate-tag {
+  display: inline-block;
+  background: var(--gold-pale);
+  color: #7a5f00;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mandate-card.dark .mandate-tag {
+  background: rgba(201,162,39,0.18);
+  color: var(--gold);
+}
+
+.mandate-tag.audit {
+  background: rgba(13,27,62,0.06);
+  color: var(--navy);
+}
+
+@media (max-width: 768px) {
+  .mandate-grid { grid-template-columns: 1fr; }
+  .mandate-card.wide {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+  .mandate-card.wide .mandate-tag { justify-self: start; }
+}
