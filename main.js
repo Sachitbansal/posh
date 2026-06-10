@@ -1,38 +1,3 @@
-const SECTIONS = [
-  'sections/nav.html',
-  'sections/hero.html',
-  'sections/mandate.html',
-  'sections/numbers.html',
-  'sections/services.html',
-  'sections/process.html',
-  'sections/about.html',
-  'sections/engagement.html',
-  'sections/clients.html',
-  'sections/gallery.html',
-  'sections/testimonials.html',
-  'sections/contact.html',
-  'sections/footer.html',
-];
-
-async function loadSections() {
-  const app = document.getElementById('app');
-  for (const path of SECTIONS) {
-    try {
-      const res = await fetch(path);
-      const raw = await res.text();
-      // Strip dev-server injected scripts (live-server injects inside SVGs, breaking foreign content parsing)
-      const html = raw.replace(/<!--[^>]*live-server[^>]*-->[\s\S]*?<\/script>/gi, '');
-      app.insertAdjacentHTML('beforeend', html);
-    } catch (e) {
-      console.warn('Could not load', path);
-    }
-  }
-  initScrollAnimations();
-  initNavBehavior();
-  initCounters();
-  initGalleryLightbox();
-  initContactForm();
-}
 
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
@@ -189,4 +154,8 @@ function initContactForm() {
   });
 }
 
-loadSections();
+initScrollAnimations();
+initNavBehavior();
+initCounters();
+initGalleryLightbox();
+initContactForm();
